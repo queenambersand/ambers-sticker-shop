@@ -3,153 +3,727 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>amber sand stickers</title>
+
+<!-- this is the tab title + what shows up in google. change it here -->
+<title>HOUSE OF SAND</title>
 <meta name="description" content="Stickers by Amber Sand. Shipped to you, or picked up at a show.">
+
 <style>
-:root{--g:#8ACE00;--k:#000;--w:#fff;--m:#666;--line:#e5e5e5}
-*{box-sizing:border-box;margin:0}
-body{font:16px/1.5 "Helvetica Neue",Arial,sans-serif;color:var(--k);background:var(--w);-webkit-font-smoothing:antialiased}
-:focus-visible{outline:3px solid var(--k);outline-offset:2px}
-button{font:inherit;cursor:pointer}
-.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
-header{position:sticky;top:0;z-index:5;background:var(--w);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
-.brand{font-weight:800;font-size:20px;letter-spacing:-.05em}
-.cartbtn{background:var(--k);color:var(--w);border:0;border-radius:99px;padding:8px 16px;font-weight:700}
-.cartbtn b{color:var(--g)}
-.hero{background:var(--g);padding:72px 0 60px}
-h1{font-size:clamp(56px,15vw,140px);line-height:.85;letter-spacing:-.07em;font-weight:800}
-.hero p{margin-top:22px;font-weight:700;font-size:18px;letter-spacing:-.01em}
-.banner{background:var(--k);color:var(--g);padding:14px 0;font-weight:700;display:none}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:28px 20px;padding:44px 0 64px}
-.tile{aspect-ratio:1;background:var(--k);color:var(--g);display:grid;place-items:center;text-align:center;padding:14px;border-radius:16px;overflow:hidden;font-weight:800;font-size:24px;line-height:1;letter-spacing:-.05em}
-.tile img{width:100%;height:100%;object-fit:cover;margin:-14px}
-.card h3{font-size:15px;font-weight:700;margin:10px 0 0}
-.pr{color:var(--m);font-size:14px;margin-bottom:8px}
-.btn,.step{border:2px solid var(--k);background:var(--w);color:var(--k);border-radius:99px;font-weight:700}
-.btn{padding:5px 20px}
-.btn:hover{background:var(--g)}
-.step{display:inline-flex;align-items:center}
-.step button{border:0;background:none;width:34px;height:30px;font-weight:800}
-.step span{min-width:22px;text-align:center;font-weight:700}
-.shows{background:var(--k);color:var(--w);padding:56px 0}
-.shows h2{color:var(--g);font-size:clamp(32px,7vw,56px);letter-spacing:-.06em;line-height:.95}
-.shows p{margin-top:14px;max-width:46ch}
-footer{padding:28px 0;color:var(--m);font-size:14px}
-#scrim{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .2s;z-index:9}
-#drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--w);z-index:10;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column;padding:20px;overflow-y:auto}
-.open #scrim{opacity:1;pointer-events:auto}.open #drawer{transform:none}
-.dh{display:flex;justify-content:space-between;align-items:center;font-size:24px;font-weight:800;letter-spacing:-.05em;margin-bottom:12px}
-.dh button{border:0;background:none;font-size:15px;font-weight:700;text-decoration:underline}
-.ln{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
-.empty{color:var(--m);padding:16px 0}
-fieldset{border:0;padding:0;margin:18px 0 6px}
-legend{font-weight:800;margin-bottom:6px}
-label{display:flex;justify-content:space-between;padding:9px 12px;border:2px solid var(--line);border-radius:12px;margin-bottom:6px;cursor:pointer}
-label:has(input:checked){border-color:var(--k);background:var(--g)}
-label input{position:absolute;opacity:0}
-.row{display:flex;justify-content:space-between;padding:3px 0}
-.tot{font-weight:800;font-size:20px;border-top:2px solid var(--k);margin-top:8px;padding-top:10px}
-.note{font-size:14px;margin:10px 0;padding:10px 12px;background:var(--g);border-radius:12px;display:none}
-.hint{font-size:13px;color:var(--m);margin:4px 0}
-#pay{margin-top:auto;background:var(--k);color:var(--g);border:0;border-radius:99px;padding:14px;font-weight:800;font-size:18px}
-#pay:disabled{opacity:.35;cursor:not-allowed}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* ==========================================================
+   COLORS
+   change the whole vibe of the site by editing these 5 lines
+   ========================================================== */
+:root {
+  --g: #8ACE00;      /* the green (hero, buttons, highlights) */
+  --k: #000;         /* black */
+  --w: #fff;         /* white */
+  --m: #666;         /* muted gray for small text like prices */
+  --line: #e5e5e5;   /* thin light borders */
+}
+
+/* ==========================================================
+   BASICS
+   ========================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font: 16px/1.5 "Helvetica Neue", Arial, sans-serif;   /* font + size */
+  color: var(--k);
+  background: var(--w);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* the black outline you see when tabbing with the keyboard. keep it for accessibility */
+:focus-visible {
+  outline: 3px solid var(--k);
+  outline-offset: 2px;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* keeps all the content centered and not super wide. 1000px = max width */
+.wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==========================================================
+   TOP BAR (logo + cart button)
+   ========================================================== */
+header {
+  position: sticky;      /* stays at the top when you scroll */
+  top: 0;
+  z-index: 5;
+  background: var(--w);
+  border-bottom: 1px solid var(--line);
+}
+
+header .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;          /* how tall the top bar is */
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -.05em;
+}
+
+/* the black "cart 0" pill */
+.cartbtn {
+  background: var(--k);
+  color: var(--w);
+  border: 0;
+  border-radius: 99px;
+  padding: 8px 16px;
+  font-weight: 700;
+}
+.cartbtn b {             /* the little number inside it */
+  color: var(--g);
+}
+
+/* ==========================================================
+   BIG GREEN HERO (the word "stickers" + price line)
+   ========================================================== */
+.hero {
+  background: var(--g);
+  padding: 72px 0 60px;  /* top and bottom space */
+}
+
+h1 {
+  /* clamp(smallest, scales with screen, biggest) */
+  font-size: clamp(56px, 15vw, 140px);
+  line-height: .85;
+  letter-spacing: -.07em;
+  font-weight: 800;
+}
+
+.hero p {
+  margin-top: 22px;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -.01em;
+}
+
+/* the black "order placed" bar. hidden until someone buys */
+.banner {
+  background: var(--k);
+  color: var(--g);
+  padding: 14px 0;
+  font-weight: 700;
+  display: none;
+}
+
+/* ==========================================================
+   STICKER GRID
+   ========================================================== */
+.grid {
+  display: grid;
+  /* 300px = smallest a sticker card gets. bigger number = fewer per row */
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 28px 20px;        /* up/down gap, side/side gap */
+  padding: 44px 0 64px;
+}
+
+/* the black square. shows the sticker name if there's no image */
+.tile {
+  aspect-ratio: 1;       /* keeps it a perfect square */
+  background: var(--k);
+  color: var(--g);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 14px;
+  border-radius: 16px;   /* roundness of the corners */
+  overflow: hidden;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+/* the actual sticker picture fills the whole square */
+.tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* crops to fit instead of stretching */
+  margin: -14px;         /* cancels out the tile padding so the pic touches the edges */
+}
+
+.card h3 {               /* sticker name under the square */
+  font-size: 15px;
+  font-weight: 700;
+  margin: 10px 0 0;
+}
+
+.pr {                    /* the "$5" under the name */
+  color: var(--m);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* ==========================================================
+   BUTTONS ("add" button + the - 1 + counter)
+   ========================================================== */
+.btn,
+.step {
+  border: 2px solid var(--k);
+  background: var(--w);
+  color: var(--k);
+  border-radius: 99px;
+  font-weight: 700;
+}
+
+.btn {
+  padding: 5px 20px;
+}
+.btn:hover {
+  background: var(--g);  /* turns green when you hover */
+}
+
+.step {
+  display: inline-flex;
+  align-items: center;
+}
+.step button {           /* the - and + buttons */
+  border: 0;
+  background: none;
+  width: 34px;
+  height: 30px;
+  font-weight: 800;
+}
+.step span {             /* the number in the middle */
+  min-width: 22px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* ==========================================================
+   BLACK "SOLD AT SHOWS" SECTION
+   ========================================================== */
+.shows {
+  background: var(--k);
+  color: var(--w);
+  padding: 56px 0;
+}
+.shows h2 {
+  color: var(--g);
+  font-size: clamp(32px, 7vw, 56px);
+  letter-spacing: -.06em;
+  line-height: .95;
+}
+.shows p {
+  margin-top: 14px;
+  max-width: 46ch;       /* keeps the paragraph from stretching too wide */
+}
+
+footer {
+  padding: 28px 0;
+  color: var(--m);
+  font-size: 14px;
+}
+
+/* ==========================================================
+   CART DRAWER (the panel that slides in from the right)
+   ========================================================== */
+
+/* the dark see-through background behind the drawer */
+#scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .45);   /* last number = how dark (0 to 1) */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
+  z-index: 9;
+}
+
+/* the drawer itself. it starts pushed off screen to the right */
+#drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(420px, 100%);          /* 420px wide, or full width on phones */
+  background: var(--w);
+  z-index: 10;
+  transform: translateX(100%);      /* 100% = hidden off to the right */
+  transition: transform .25s;      /* slide speed */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* when the body has class "open" the drawer slides in (javascript adds this) */
+.open #scrim {
+  opacity: 1;
+  pointer-events: auto;
+}
+.open #drawer {
+  transform: none;
+}
+
+/* "cart" title + close button */
+.dh {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -.05em;
+  margin-bottom: 12px;
+}
+.dh button {
+  border: 0;
+  background: none;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* each sticker row inside the cart */
+.ln {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.empty {                 /* "your cart is empty." */
+  color: var(--m);
+  padding: 16px 0;
+}
+
+/* ---------- delivery options (us shipping / international / pickup) ---------- */
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 18px 0 6px;
+}
+legend {
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+label {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 12px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+/* whichever option is selected gets a black border + green fill */
+label:has(input:checked) {
+  border-color: var(--k);
+  background: var(--g);
+}
+/* hides the ugly default radio circle. the whole box is clickable instead */
+label input {
+  position: absolute;
+  opacity: 0;
+}
+
+/* ---------- totals ---------- */
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+}
+.tot {                   /* the bold total line */
+  font-weight: 800;
+  font-size: 20px;
+  border-top: 2px solid var(--k);
+  margin-top: 8px;
+  padding-top: 10px;
+}
+
+/* green heads-up box (multiple envelopes / pickup info). hidden until needed */
+.note {
+  font-size: 14px;
+  margin: 10px 0;
+  padding: 10px 12px;
+  background: var(--g);
+  border-radius: 12px;
+  display: none;
+}
+
+.hint {                  /* small gray text about envelopes */
+  font-size: 13px;
+  color: var(--m);
+  margin: 4px 0;
+}
+
+/* the big black checkout button at the bottom of the drawer */
+#pay {
+  margin-top: auto;      /* pushes it to the bottom */
+  background: var(--k);
+  color: var(--g);
+  border: 0;
+  border-radius: 99px;
+  padding: 14px;
+  font-weight: 800;
+  font-size: 18px;
+}
+#pay:disabled {          /* faded when the cart is empty */
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+/* if someone's computer is set to reduce motion, turn off the sliding */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
 </style>
 </head>
+
 <body>
-<header><div class="wrap"><span class="brand">amber sand</span><button class="cartbtn" id="open">cart <b id="cnt">0</b></button></div></header>
-<div class="banner" id="ok"><div class="wrap">order placed. check your email for the receipt.</div></div>
 
-<section class="hero"><div class="wrap">
-<h1>stickers</h1>
-<p>$5 for the first. $4 each after that.</p>
-</div></section>
+<!-- ==========================================================
+     TOP BAR
+     "amber sand" is the logo text. the cart button opens the drawer
+     ========================================================== -->
+<header>
+  <div class="wrap">
+    <span class="brand">amber sand</span>
+    <button class="cartbtn" id="open">cart <b id="cnt">0</b></button>
+  </div>
+</header>
 
-<main class="wrap"><div class="grid" id="grid" aria-live="polite"></div></main>
+<!-- black bar that appears after a successful order. edit the message here -->
+<div class="banner" id="ok">
+  <div class="wrap">order placed. check your email for the receipt.</div>
+</div>
 
-<section class="shows"><div class="wrap">
-<h2>also sold in person at every show.</h2>
-<p>Find me at the merch table, or choose local pickup at checkout and we'll arrange a handoff at an upcoming show.</p>
-</div></section>
+<!-- ==========================================================
+     HERO (big green section)
+     if i change prices in stickers.json, also change this line!
+     ========================================================== -->
+<section class="hero">
+  <div class="wrap">
+    <h1>stickers</h1>
+    <p>$5 for the first. $4 each after that.</p>
+  </div>
+</section>
 
-<footer><div class="wrap">Questions? <a href="mailto:you@example.com">you@example.com</a></div></footer>
+<!-- ==========================================================
+     STICKER GRID
+     leave this empty. the javascript at the bottom fills it in
+     from stickers.json
+     ========================================================== -->
+<main class="wrap">
+  <div class="grid" id="grid" aria-live="polite"></div>
+</main>
 
+<!-- ==========================================================
+     BLACK "IN PERSON" SECTION
+     ========================================================== -->
+<section class="shows">
+  <div class="wrap">
+    <h2>also sold in person at every show.</h2>
+    <p>Find me at the merch table, or choose local pickup at checkout and we'll arrange a handoff at an upcoming show.</p>
+  </div>
+</section>
+
+<!-- TODO: swap the placeholder email with my real one (both spots) -->
+<footer>
+  <div class="wrap">
+    Questions? <a href="mailto:you@example.com">you@example.com</a>
+  </div>
+</footer>
+
+<!-- ==========================================================
+     CART DRAWER
+     hidden off to the right until someone clicks "cart"
+     ========================================================== -->
 <div id="scrim"></div>
+
 <aside id="drawer" aria-label="cart">
-<div class="dh">cart <button id="close">close</button></div>
-<div id="lines"></div>
-<fieldset><legend>delivery</legend>
-<label><span><input type="radio" name="m" value="domestic" checked>US shipping</span><span id="p-domestic"></span></label>
-<label><span><input type="radio" name="m" value="international">international shipping</span><span id="p-international"></span></label>
-<label><span><input type="radio" name="m" value="pickup">local pickup at a show</span><span>free</span></label>
-</fieldset>
-<p class="hint" id="hint"></p>
-<div class="note" id="note"></div>
-<div id="sum"></div>
-<button id="pay" disabled>checkout</button>
+
+  <div class="dh">cart <button id="close">close</button></div>
+
+  <!-- the list of stickers in the cart gets filled in by javascript -->
+  <div id="lines"></div>
+
+  <!-- delivery choices. the value="" names must match the shipping prices
+       in stickers.json (domestic / international) and pickup is always free -->
+  <fieldset>
+    <legend>delivery</legend>
+    <label>
+      <span><input type="radio" name="m" value="domestic" checked>US shipping</span>
+      <span id="p-domestic"></span>
+    </label>
+    <label>
+      <span><input type="radio" name="m" value="international">international shipping</span>
+      <span id="p-international"></span>
+    </label>
+    <label>
+      <span><input type="radio" name="m" value="pickup">local pickup at a show</span>
+      <span>free</span>
+    </label>
+  </fieldset>
+
+  <p class="hint" id="hint"></p>   <!-- envelope info, filled in by javascript -->
+  <div class="note" id="note"></div>   <!-- green heads-up box, filled in by javascript -->
+  <div id="sum"></div>   <!-- subtotal / shipping / total, filled in by javascript -->
+
+  <button id="pay" disabled>checkout</button>
+
 </aside>
 
-<script>
-const $=s=>document.querySelector(s);
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const fmt=c=>'$'+(c/100).toFixed(c%100?2:0);
-let D,cart={},ship='domestic';
-try{cart=JSON.parse(localStorage.getItem('cart')||'{}')}catch(e){}
-const save=()=>{try{localStorage.setItem('cart',JSON.stringify(cart))}catch(e){}};
-const count=()=>Object.values(cart).reduce((a,b)=>a+b,0);
 
-function totals(){
-  const n=count(),P=D.pricing,env=Math.ceil(n/P.perEnvelope);
-  const sub=n?P.first+P.additional*(n-1):0;
-  const sh=ship==='pickup'?0:env*P[ship];
-  return {n,env,sub,sh,total:sub+sh};
-}
-function render(){
-  const t=totals(),P=D.pricing;
-  $('#cnt').textContent=t.n;
-  $('#grid').innerHTML=D.stickers.map(s=>{
-    const q=cart[s.id]||0;
-    return `<div class="card"><div class="tile">${s.image?`<img src="${esc(s.image)}" alt="${esc(s.name)}" loading="lazy">`:esc(s.name)}</div>
-    <h3>${esc(s.name)}</h3><div class="pr">${fmt(P.first)}</div>
-    ${q?`<div class="step"><button data-d="${s.id}:-1" aria-label="remove one">−</button><span>${q}</span><button data-d="${s.id}:1" aria-label="add one">+</button></div>`:`<button class="btn" data-d="${s.id}:1">add</button>`}</div>`;
-  }).join('');
-  $('#lines').innerHTML=t.n?D.stickers.filter(s=>cart[s.id]).map(s=>`<div class="ln"><span>${esc(s.name)}</span><span class="step"><button data-d="${s.id}:-1" aria-label="remove one">−</button><span>${cart[s.id]}</span><button data-d="${s.id}:1" aria-label="add one">+</button></span></div>`).join(''):'<p class="empty">your cart is empty.</p>';
-  $('#p-domestic').textContent='+'+fmt(P.domestic);
-  $('#p-international').textContent='+'+fmt(P.international);
-  $('#hint').textContent=`Shipping is per envelope. Each envelope holds up to ${P.perEnvelope} stickers.`;
-  const note=$('#note');
-  if(ship==='pickup'&&t.n){note.style.display='block';note.textContent='Pickup is coordinated with Amber Sand. After checkout you will be contacted to arrange a handoff at one of the shows.'}
-  else if(t.env>1){note.style.display='block';note.textContent=`Heads up: ${t.n} stickers won't fit in one envelope, so this order ships in ${t.env} envelopes. Shipping is charged for each one.`}
-  else note.style.display='none';
-  $('#sum').innerHTML=t.n?`<div class="row"><span>stickers (${t.n})</span><span>${fmt(t.sub)}</span></div>
-    <div class="row"><span>${ship==='pickup'?'pickup':'shipping'}</span><span>${t.sh?fmt(t.sh):'free'}</span></div>
-    <div class="row tot"><span>total</span><span>${fmt(t.total)}</span></div>`:'';
-  $('#pay').disabled=!t.n;
-}
-document.addEventListener('click',e=>{
-  const b=e.target.closest('[data-d]');if(!b)return;
-  const [id,d]=b.dataset.d.split(':');
-  cart[id]=Math.max(0,(cart[id]||0)+ +d);if(!cart[id])delete cart[id];
-  save();render();
-});
-document.querySelectorAll('input[name=m]').forEach(r=>r.onchange=()=>{ship=r.value;render()});
-const toggle=o=>document.body.classList.toggle('open',o);
-$('#open').onclick=()=>toggle(true);$('#close').onclick=$('#scrim').onclick=()=>toggle(false);
-document.addEventListener('keydown',e=>e.key==='Escape'&&toggle(false));
-$('#pay').onclick=async e=>{
-  const b=e.target;b.disabled=true;b.textContent='one sec...';
-  try{
-    const r=await fetch('/api/checkout',{method:'POST',headers:{'content-type':'application/json'},
-      body:JSON.stringify({method:ship,items:Object.entries(cart).map(([id,qty])=>({id,qty}))})});
-    const j=await r.json();if(!j.url)throw 0;location.href=j.url;
-  }catch(err){alert('Checkout failed. Please try again.');b.disabled=false;b.textContent='checkout'}
+<script>
+/* ==========================================================
+   JAVASCRIPT
+   most of the time i only need to touch the html + css above.
+   i only come down here if i'm changing how the cart or checkout acts
+   ========================================================== */
+
+
+/* ---------- little helper tools ---------- */
+
+// shortcut: $('#grid') = grab the thing on the page with id="grid"
+const $ = s => document.querySelector(s);
+
+// makes sticker names safe to put on the page (so weird characters can't break stuff)
+const esc = s => String(s).replace(/[&<>"]/g, c => ({
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;'
+}[c]));
+
+// turns cents into dollars. 500 -> "$5", 450 -> "$4.50"
+const fmt = c => '$' + (c / 100).toFixed(c % 100 ? 2 : 0);
+
+
+/* ---------- the stuff the page remembers ---------- */
+
+let D;                    // all the data from stickers.json (prices + sticker list)
+let cart = {};            // what's in the cart, like { s01: 2, s03: 1 } (id: how many)
+let ship = 'domestic';    // which delivery option is picked right now
+
+// load the saved cart from the browser so it survives a refresh
+try { cart = JSON.parse(localStorage.getItem('cart') || '{}') } catch (e) {}
+
+// save the cart to the browser
+const save = () => {
+  try { localStorage.setItem('cart', JSON.stringify(cart)) } catch (e) {}
 };
-fetch('stickers.json').then(r=>r.json()).then(d=>{
-  D=d;for(const id in cart)if(!d.stickers.some(s=>s.id===id))delete cart[id];
-  if(location.search.includes('success=1')){cart={};save();$('#ok').style.display='block';history.replaceState(null,'',location.pathname)}
+
+// total number of stickers in the cart
+const count = () => Object.values(cart).reduce((a, b) => a + b, 0);
+
+
+/* ---------- the math ---------- */
+
+// works out subtotal, shipping, and total
+function totals() {
+  const n   = count();                          // how many stickers
+  const P   = D.pricing;                        // prices from stickers.json
+  const env = Math.ceil(n / P.perEnvelope);     // how many envelopes (rounds up)
+
+  // first sticker costs "first", every one after costs "additional"
+  const sub = n ? P.first + P.additional * (n - 1) : 0;
+
+  // shipping is charged per envelope. pickup is free
+  const sh = ship === 'pickup' ? 0 : env * P[ship];
+
+  return { n, env, sub, sh, total: sub + sh };
+}
+
+
+/* ---------- little html pieces ---------- */
+
+// the  - 2 +  buttons. "tag" is div on the cards, span in the cart
+function stepper(id, qty, tag) {
+  return `<${tag} class="step">
+    <button data-d="${id}:-1" aria-label="remove one">−</button>
+    <span>${qty}</span>
+    <button data-d="${id}:1" aria-label="add one">+</button>
+  </${tag}>`;
+}
+
+// one sticker card in the grid
+function cardHTML(s) {
+  const q = cart[s.id] || 0;   // how many of this one are in the cart
+
+  // if the sticker has a picture show it, otherwise show its name
+  const inner = s.image
+    ? `<img src="${esc(s.image)}" alt="${esc(s.name)}" loading="lazy">`
+    : esc(s.name);
+
+  // if it's in the cart show - 2 +, otherwise show the "add" button
+  const control = q
+    ? stepper(s.id, q, 'div')
+    : `<button class="btn" data-d="${s.id}:1">add</button>`;
+
+  return `<div class="card">
+    <div class="tile">${inner}</div>
+    <h3>${esc(s.name)}</h3>
+    <div class="pr">${fmt(D.pricing.first)}</div>
+    ${control}
+  </div>`;
+}
+
+// one row inside the cart drawer
+function cartLineHTML(s) {
+  return `<div class="ln">
+    <span>${esc(s.name)}</span>
+    ${stepper(s.id, cart[s.id], 'span')}
+  </div>`;
+}
+
+
+/* ==========================================================
+   DRAW THE PAGE
+   runs every time anything changes (add, remove, switch delivery)
+   it just redraws everything from scratch
+   ========================================================== */
+function render() {
+  const t = totals();
+  const P = D.pricing;
+
+  // number on the cart button
+  $('#cnt').textContent = t.n;
+
+  // the sticker grid
+  $('#grid').innerHTML = D.stickers.map(cardHTML).join('');
+
+  // the cart drawer list (or "empty" message)
+  $('#lines').innerHTML = t.n
+    ? D.stickers.filter(s => cart[s.id]).map(cartLineHTML).join('')
+    : '<p class="empty">your cart is empty.</p>';
+
+  // shipping prices next to the delivery options
+  $('#p-domestic').textContent      = '+' + fmt(P.domestic);
+  $('#p-international').textContent = '+' + fmt(P.international);
+
+  // small gray text about envelopes
+  $('#hint').textContent = `Shipping is per envelope. Each envelope holds up to ${P.perEnvelope} stickers.`;
+
+  // the green heads-up box. change the wording here if i want
+  const note = $('#note');
+  if (ship === 'pickup' && t.n) {
+    note.style.display = 'block';
+    note.textContent = 'Pickup is coordinated with Amber Sand. After checkout you will be contacted to arrange a handoff at one of the shows.';
+  } else if (t.env > 1) {
+    note.style.display = 'block';
+    note.textContent = `Heads up: ${t.n} stickers won't fit in one envelope, so this order ships in ${t.env} envelopes. Shipping is charged for each one.`;
+  } else {
+    note.style.display = 'none';
+  }
+
+  // subtotal / shipping / total lines (blank if the cart is empty)
+  $('#sum').innerHTML = t.n
+    ? `<div class="row"><span>stickers (${t.n})</span><span>${fmt(t.sub)}</span></div>
+       <div class="row"><span>${ship === 'pickup' ? 'pickup' : 'shipping'}</span><span>${t.sh ? fmt(t.sh) : 'free'}</span></div>
+       <div class="row tot"><span>total</span><span>${fmt(t.total)}</span></div>`
+    : '';
+
+  // grey out the checkout button if the cart is empty
+  $('#pay').disabled = !t.n;
+}
+
+
+/* ==========================================================
+   CLICKS AND BUTTONS
+   ========================================================== */
+
+// any button with data-d="id:1" or "id:-1" (the add, +, and - buttons)
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-d]');
+  if (!b) return;
+
+  const [id, d] = b.dataset.d.split(':');            // split "s01:1" into "s01" and "1"
+  cart[id] = Math.max(0, (cart[id] || 0) + +d);      // add or remove one (never below 0)
+  if (!cart[id]) delete cart[id];                    // remove from cart if it hits 0
+
+  save();
   render();
 });
+
+// switching between US / international / pickup
+document.querySelectorAll('input[name=m]').forEach(r => {
+  r.onchange = () => { ship = r.value; render(); };
+});
+
+// open + close the cart drawer
+const toggle = o => document.body.classList.toggle('open', o);
+$('#open').onclick = () => toggle(true);
+$('#close').onclick = $('#scrim').onclick = () => toggle(false);   // close button OR clicking the dark background
+document.addEventListener('keydown', e => e.key === 'Escape' && toggle(false));   // esc key closes it too
+
+
+/* ==========================================================
+   CHECKOUT BUTTON
+   sends the cart to /api/checkout (the cloudflare function).
+   it sends back a stripe link and we jump to it.
+   NOTE: this only works on cloudflare, NOT on github pages
+   ========================================================== */
+$('#pay').onclick = async e => {
+  const b = e.target;
+  b.disabled = true;
+  b.textContent = 'one sec...';
+
+  try {
+    const r = await fetch('/api/checkout', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        method: ship,
+        items: Object.entries(cart).map(([id, qty]) => ({ id, qty }))
+      })
+    });
+    const j = await r.json();
+    if (!j.url) throw 0;          // no stripe link came back = something broke
+    location.href = j.url;        // go to the stripe checkout page
+  } catch (err) {
+    alert('Checkout failed. Please try again.');
+    b.disabled = false;
+    b.textContent = 'checkout';
+  }
+};
+
+
+/* ==========================================================
+   START UP
+   loads stickers.json, then draws the page
+   (no leading slash on the file name! keeps it working on github pages)
+   ========================================================== */
+fetch('stickers.json')
+  .then(r => r.json())
+  .then(d => {
+    D = d;
+
+    // throw out anything in a saved cart that isn't a real sticker anymore
+    for (const id in cart) {
+      if (!d.stickers.some(s => s.id === id)) delete cart[id];
+    }
+
+    // if stripe sent them back after paying: empty the cart + show the "order placed" bar
+    if (location.search.includes('success=1')) {
+      cart = {};
+      save();
+      $('#ok').style.display = 'block';
+      history.replaceState(null, '', location.pathname);   // cleans "?success=1" out of the url
+    }
+
+    render();
+  });
 </script>
 </body>
 </html>
