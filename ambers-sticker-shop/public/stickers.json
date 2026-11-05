@@ -1,7 +1,7 @@
 {
   "pricing": { "first": 500, "additional": 400, "domestic": 100, "international": 200, "perEnvelope": 8 },
   "stickers": [
-    { "id": "s01", "name": "Amber as Pennywise",   "image": "img/amber-as-pennywise.jpg" },
+    { "id": "s01", "name": "sticker one",   "image": "" },
     { "id": "s02", "name": "sticker two",   "image": "" },
     { "id": "s03", "name": "sticker three", "image": "" },
     { "id": "s04", "name": "sticker four",  "image": "" },
