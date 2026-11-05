@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>amber sand stickers</title>
+<meta name="description" content="Stickers by Amber Sand. Shipped to you, or picked up at a show.">
+<style>
+:root{--g:#8ACE00;--k:#000;--w:#fff;--m:#666;--line:#e5e5e5}
+*{box-sizing:border-box;margin:0}
+body{font:16px/1.5 "Helvetica Neue",Arial,sans-serif;color:var(--k);background:var(--w);-webkit-font-smoothing:antialiased}
+:focus-visible{outline:3px solid var(--k);outline-offset:2px}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:5;background:var(--w);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.brand{font-weight:800;font-size:20px;letter-spacing:-.05em}
+.cartbtn{background:var(--k);color:var(--w);border:0;border-radius:99px;padding:8px 16px;font-weight:700}
+.cartbtn b{color:var(--g)}
+.hero{background:var(--g);padding:72px 0 60px}
+h1{font-size:clamp(56px,15vw,140px);line-height:.85;letter-spacing:-.07em;font-weight:800}
+.hero p{margin-top:22px;font-weight:700;font-size:18px;letter-spacing:-.01em}
+.banner{background:var(--k);color:var(--g);padding:14px 0;font-weight:700;display:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:28px 20px;padding:44px 0 64px}
+.tile{aspect-ratio:1;background:var(--k);color:var(--g);display:grid;place-items:center;text-align:center;padding:14px;border-radius:16px;overflow:hidden;font-weight:800;font-size:24px;line-height:1;letter-spacing:-.05em}
+.tile img{width:100%;height:100%;object-fit:cover;margin:-14px}
+.card h3{font-size:15px;font-weight:700;margin:10px 0 0}
+.pr{color:var(--m);font-size:14px;margin-bottom:8px}
+.btn,.step{border:2px solid var(--k);background:var(--w);color:var(--k);border-radius:99px;font-weight:700}
+.btn{padding:5px 20px}
+.btn:hover{background:var(--g)}
+.step{display:inline-flex;align-items:center}
+.step button{border:0;background:none;width:34px;height:30px;font-weight:800}
+.step span{min-width:22px;text-align:center;font-weight:700}
+.shows{background:var(--k);color:var(--w);padding:56px 0}
+.shows h2{color:var(--g);font-size:clamp(32px,7vw,56px);letter-spacing:-.06em;line-height:.95}
+.shows p{margin-top:14px;max-width:46ch}
+footer{padding:28px 0;color:var(--m);font-size:14px}
+#scrim{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .2s;z-index:9}
+#drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--w);z-index:10;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column;padding:20px;overflow-y:auto}
+.open #scrim{opacity:1;pointer-events:auto}.open #drawer{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;font-size:24px;font-weight:800;letter-spacing:-.05em;margin-bottom:12px}
+.dh button{border:0;background:none;font-size:15px;font-weight:700;text-decoration:underline}
+.ln{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.empty{color:var(--m);padding:16px 0}
+fieldset{border:0;padding:0;margin:18px 0 6px}
+legend{font-weight:800;margin-bottom:6px}
+label{display:flex;justify-content:space-between;padding:9px 12px;border:2px solid var(--line);border-radius:12px;margin-bottom:6px;cursor:pointer}
+label:has(input:checked){border-color:var(--k);background:var(--g)}
+label input{position:absolute;opacity:0}
+.row{display:flex;justify-content:space-between;padding:3px 0}
+.tot{font-weight:800;font-size:20px;border-top:2px solid var(--k);margin-top:8px;padding-top:10px}
+.note{font-size:14px;margin:10px 0;padding:10px 12px;background:var(--g);border-radius:12px;display:none}
+.hint{font-size:13px;color:var(--m);margin:4px 0}
+#pay{margin-top:auto;background:var(--k);color:var(--g);border:0;border-radius:99px;padding:14px;font-weight:800;font-size:18px}
+#pay:disabled{opacity:.35;cursor:not-allowed}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><span class="brand">amber sand</span><button class="cartbtn" id="open">cart <b id="cnt">0</b></button></div></header>
+<div class="banner" id="ok"><div class="wrap">order placed. check your email for the receipt.</div></div>
+
+<section class="hero"><div class="wrap">
+<h1>stickers</h1>
+<p>$5 for the first. $4 each after that.</p>
+</div></section>
+
+<main class="wrap"><div class="grid" id="grid" aria-live="polite"></div></main>
+
+<section class="shows"><div class="wrap">
+<h2>also sold in person at every show.</h2>
+<p>Find me at the merch table, or choose local pickup at checkout and we'll arrange a handoff at an upcoming show.</p>
+</div></section>
+
+<footer><div class="wrap">Questions? <a href="mailto:you@example.com">you@example.com</a></div></footer>
+
+<div id="scrim"></div>
+<aside id="drawer" aria-label="cart">
+<div class="dh">cart <button id="close">close</button></div>
+<div id="lines"></div>
+<fieldset><legend>delivery</legend>
+<label><span><input type="radio" name="m" value="domestic" checked>US shipping</span><span id="p-domestic"></span></label>
+<label><span><input type="radio" name="m" value="international">international shipping</span><span id="p-international"></span></label>
+<label><span><input type="radio" name="m" value="pickup">local pickup at a show</span><span>free</span></label>
+</fieldset>
+<p class="hint" id="hint"></p>
+<div class="note" id="note"></div>
+<div id="sum"></div>
+<button id="pay" disabled>checkout</button>
+</aside>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt=c=>'$'+(c/100).toFixed(c%100?2:0);
+let D,cart={},ship='domestic';
+try{cart=JSON.parse(localStorage.getItem('cart')||'{}')}catch(e){}
+const save=()=>{try{localStorage.setItem('cart',JSON.stringify(cart))}catch(e){}};
+const count=()=>Object.values(cart).reduce((a,b)=>a+b,0);
+
+function totals(){
+  const n=count(),P=D.pricing,env=Math.ceil(n/P.perEnvelope);
+  const sub=n?P.first+P.additional*(n-1):0;
+  const sh=ship==='pickup'?0:env*P[ship];
+  return {n,env,sub,sh,total:sub+sh};
+}
+function render(){
+  const t=totals(),P=D.pricing;
+  $('#cnt').textContent=t.n;
+  $('#grid').innerHTML=D.stickers.map(s=>{
+    const q=cart[s.id]||0;
+    return `<div class="card"><div class="tile">${s.image?`<img src="${esc(s.image)}" alt="${esc(s.name)}" loading="lazy">`:esc(s.name)}</div>
+    <h3>${esc(s.name)}</h3><div class="pr">${fmt(P.first)}</div>
+    ${q?`<div class="step"><button data-d="${s.id}:-1" aria-label="remove one">−</button><span>${q}</span><button data-d="${s.id}:1" aria-label="add one">+</button></div>`:`<button class="btn" data-d="${s.id}:1">add</button>`}</div>`;
+  }).join('');
+  $('#lines').innerHTML=t.n?D.stickers.filter(s=>cart[s.id]).map(s=>`<div class="ln"><span>${esc(s.name)}</span><span class="step"><button data-d="${s.id}:-1" aria-label="remove one">−</button><span>${cart[s.id]}</span><button data-d="${s.id}:1" aria-label="add one">+</button></span></div>`).join(''):'<p class="empty">your cart is empty.</p>';
+  $('#p-domestic').textContent='+'+fmt(P.domestic);
+  $('#p-international').textContent='+'+fmt(P.international);
+  $('#hint').textContent=`Shipping is per envelope. Each envelope holds up to ${P.perEnvelope} stickers.`;
+  const note=$('#note');
+  if(ship==='pickup'&&t.n){note.style.display='block';note.textContent='Pickup is coordinated with Amber Sand. After checkout you will be contacted to arrange a handoff at one of the shows.'}
+  else if(t.env>1){note.style.display='block';note.textContent=`Heads up: ${t.n} stickers won't fit in one envelope, so this order ships in ${t.env} envelopes. Shipping is charged for each one.`}
+  else note.style.display='none';
+  $('#sum').innerHTML=t.n?`<div class="row"><span>stickers (${t.n})</span><span>${fmt(t.sub)}</span></div>
+    <div class="row"><span>${ship==='pickup'?'pickup':'shipping'}</span><span>${t.sh?fmt(t.sh):'free'}</span></div>
+    <div class="row tot"><span>total</span><span>${fmt(t.total)}</span></div>`:'';
+  $('#pay').disabled=!t.n;
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-d]');if(!b)return;
+  const [id,d]=b.dataset.d.split(':');
+  cart[id]=Math.max(0,(cart[id]||0)+ +d);if(!cart[id])delete cart[id];
+  save();render();
+});
+document.querySelectorAll('input[name=m]').forEach(r=>r.onchange=()=>{ship=r.value;render()});
+const toggle=o=>document.body.classList.toggle('open',o);
+$('#open').onclick=()=>toggle(true);$('#close').onclick=$('#scrim').onclick=()=>toggle(false);
+document.addEventListener('keydown',e=>e.key==='Escape'&&toggle(false));
+$('#pay').onclick=async e=>{
+  const b=e.target;b.disabled=true;b.textContent='one sec...';
+  try{
+    const r=await fetch('/api/checkout',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({method:ship,items:Object.entries(cart).map(([id,qty])=>({id,qty}))})});
+    const j=await r.json();if(!j.url)throw 0;location.href=j.url;
+  }catch(err){alert('Checkout failed. Please try again.');b.disabled=false;b.textContent='checkout'}
+};
+fetch('/stickers.json').then(r=>r.json()).then(d=>{
+  D=d;for(const id in cart)if(!d.stickers.some(s=>s.id===id))delete cart[id];
+  if(location.search.includes('success=1')){cart={};save();$('#ok').style.display='block';history.replaceState(null,'','/')}
+  render();
+});
+</script>
+</body>
+</html>
